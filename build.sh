@@ -1,16 +1,20 @@
 
 #!/usr/bin/bash
 
-if [[ -e defaulT.asp ]] 
+if [ -e w3.css ] ; then 
 echo "El archivo ya existe"
 
-wget https://www.w3schools.com/w3css/defaulT.asp
-if [[ $? -ne 0 ]] ; then
+else
+wget https://www.w3schools.com/w3css/4/w3.css
+fi
+
+if [ $? -ne 0 ] ; then
 echo "Error"
- 
+fi
+
 touch index.html
 
-cat << EOF >>index.html
+cat << EOF >index.html
 
 <!doctype html>
 <html>
@@ -20,7 +24,7 @@ cat << EOF >>index.html
 <title>Mi Primera página web</title>
 </head>
 <body>
-<h1>Mi primera página web</h1>
+<h1 class="w3-pink">Mi primera página web</h1>
 <ul>
 <li><a href="pagina1.html">Página 1</a></li>
 <li><a href="pagina2.html">Página 2</a></li>
@@ -33,7 +37,7 @@ EOF
 
 touch pagina1.html
 
-cat << EOF >>pagina1.html
+cat << EOF >pagina1.html
 
 <!doctype html>
 <html>
@@ -51,7 +55,7 @@ EOF
 
 touch pagina2.html
 
-cat << EOF >>pagina2.html
+cat << EOF >pagina2.html
 
 <!doctype html>
 <html>
@@ -69,7 +73,7 @@ EOF
 
 touch pagina3
 
-cat << EOF >>pagina3.html
+cat << EOF >pagina3.html
 
 <!doctype html>
 <html>
